@@ -1,6 +1,11 @@
 import pandas as pd
 import string as s
 import random as r
+from cryptography.fernet import Fernet as F
+import base64
+import os
+from cryptography.hazmat.primitives import hashes
+from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
 
 if __name__ == '__main__':
     
@@ -40,7 +45,25 @@ if __name__ == '__main__':
     
     #calling for all functions
     username = username_function()
-    password =password_function()
+    password = password_function()
+
+    #encryption_decryption
+    salt = os.urandom(16)
+    kdf = PBKDF2HMAC(
+        algorithm=hashes.SHA256(),
+        length=32,
+        salt=salt,
+        iterations=1_200_000,
+    )
+    m_password = b"abcd"
+    key = base64.urlsafe_b64encode(kdf.derive(m_password))
+    f_obj = F(key)
+    print(key)
+    encrypted_pass = f_obj.encrypt(password.encode())
+    print(encrypted_pass)
+    password=encrypted_pass
+    decrypted_pass = f_obj.decrypt(encrypted_pass)
+    print(decrypted_pass)
 
     #reading csv
     try:
