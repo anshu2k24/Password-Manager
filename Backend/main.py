@@ -8,7 +8,18 @@ from cryptography.hazmat.primitives import hashes
 from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
 
 if __name__ == '__main__':
-    
+    #verifying master key
+    m_password = input("Master Key - ")
+
+    #platform
+    def platform_function():
+        platform = input("Platform: ")
+        #to ensure its not blank
+        while not platform.strip():
+            print("Enter the platform name!")
+            platform = input("Platform: ")
+        return platform
+
     #username
     def username_function():
         username = input("UserName: ")
@@ -43,11 +54,27 @@ if __name__ == '__main__':
                 print("Enter a valid input!")
         return password
     
+    #encryption_decryption
+    # def encrypt_function(password,m_password):
+    #     salt = os.urandom(16)
+    #     kdf = PBKDF2HMAC(
+    #         algorithm=hashes.SHA256(),
+    #         length=32,
+    #         salt=salt,
+    #         iterations=1_200_000,
+    #     )
+    #     key = base64.urlsafe_b64encode(kdf.derive(m_password.encode()))
+    #     f_obj = F(key)
+    #     encrypted_pass = f_obj.encrypt(password.encode())
+    #     password = encrypted_pass
+    #     return salt
+                          
+
     #calling for all functions
+    platform = platform_function()
     username = username_function()
     password = password_function()
 
-    #encryption_decryption
     salt = os.urandom(16)
     kdf = PBKDF2HMAC(
         algorithm=hashes.SHA256(),
@@ -55,24 +82,24 @@ if __name__ == '__main__':
         salt=salt,
         iterations=1_200_000,
     )
-    m_password = b"abcd"
-    key = base64.urlsafe_b64encode(kdf.derive(m_password))
+    key = base64.urlsafe_b64encode(kdf.derive(m_password.encode()))
     f_obj = F(key)
-    print(key)
     encrypted_pass = f_obj.encrypt(password.encode())
-    print(encrypted_pass)
-    password=encrypted_pass
-    decrypted_pass = f_obj.decrypt(encrypted_pass)
-    print(decrypted_pass)
+    password = encrypted_pass
+
+
+    # salt = encrypt_function(password,m_password)
+    # encrypt_function(password,m_password)
+     
 
     #reading csv
     try:
         df = pd.read_csv('u_p.csv')
     except FileNotFoundError:
-        df = pd.DataFrame(columns=["Username","Password"])
+        df = pd.DataFrame(columns=["Platform","Username","Password","Salt"])
 
     #storing username and password
-    new = pd.DataFrame([{"Username":username,"Password":password}])
+    new = pd.DataFrame([{"Platform":platform,"Username":username,"Password":password,"Salt":salt}])
     df = pd.concat([df,new],ignore_index=True)
     df.to_csv('u_p.csv',index=False)
     print("TADA!! Done")
