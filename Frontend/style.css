@@ -1,0 +1,208 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body{
+    background-color: rgb(12, 4, 39);
+}
+
+                                    /* home page */
+
+nav{
+    background-color: rgb(9, 9, 16);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 10vh;
+}
+
+.logo{
+    margin-left: 5rem;
+    font-size: 1.6rem;
+    font-weight: 600;
+}
+
+.gradient-logo {
+    background: linear-gradient(to right, #00F0FF, #00FFA3);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+  }
+  
+ul{
+    display: flex;
+}
+
+li a{
+    padding-right: 100px;
+    text-decoration: none;
+    color: rgb(207, 219, 219);
+    font-size: 16px;
+}
+
+li{
+    list-style: none;
+}
+
+main{
+    height:90vh;
+    display: flex;
+}
+
+.writing{
+    width:60vw;
+    color: rgb(188, 192, 192);
+    display: flex;
+    flex-direction: column;
+    justify-content:flex-start;
+    align-items: center;
+    margin-top: 200px;
+    margin-left: 15px;
+    text-align: center;
+}
+
+.gradient-text {
+    background: linear-gradient(to right, #3B82F6, #A855F7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    padding-bottom: 40px;
+    font-size: 40px;
+  }
+
+  p{
+    font-size: 25px;
+  }
+
+.button {
+    background: linear-gradient(to right, #3B82F6, #A855F7);
+    color: white;
+    padding: 18px 30px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 70px;
+    text-align: center;
+    text-decoration: none;
+  }
+  
+  
+
+.img{
+    height:550px;
+    margin-top: 100px;  
+}
+
+img{
+    width:550px;
+    height:550px;
+    border-radius: 25px;
+    opacity: 0.9;
+    margin-left: 20px;
+}
+
+a:hover{
+    color: blueviolet;
+}
+
+
+                                     /* about page */
+
+.heading{
+    text-align: center;
+    margin-top: 8vh;
+    font-weight: 600;
+}
+
+.gradient-text2 {
+    background: linear-gradient(to right, #f6413b, #e4f755);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    padding-bottom: 40px;
+    font-size: 40px;
+  }
+
+  .content{
+    margin:50px;
+    text-align: center;
+    color:rgb(188, 192, 192); 
+  }
+
+                                     /* save page */
+
+  .heading2{
+   text-align: center;
+    margin-top: 4vh;
+    font-weight: 600;
+     }
+
+
+ .box{
+    height:65vh;
+    width:40vw;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid rgb(24, 9, 75);
+    color: rgb(220, 229, 237);
+    margin-top: 2vh;
+    margin-left: 56vh;
+    border-radius: 18px;  
+ } 
+ 
+ .savehead{
+    margin: 20px;
+    font-weight: 700;
+ }
+ 
+ #search{
+    height:45px;
+    margin: 10px;
+    border-radius: 18px;
+    padding-left: 20px;
+    border: 2px solid rgb(64, 134, 14);
+    background-color: rgba(255, 255, 255, 0.05);
+    color: white;
+ }
+
+ label{
+    margin: 10px;
+ }
+
+ .small{
+    height:7px;
+    width:300px;
+    margin-left: 20px;
+    margin-top: 10px;
+    background: linear-gradient(to right, #e3f63b, #f255f7);
+ }
+
+ .generate{
+    font-size: 14px;
+    margin-left: 20px;
+    margin-top: 20px;
+ }
+
+ .submit{
+    margin: 20px;
+    height:50px;
+    width:120px;
+    margin-left: 250px;
+    font-size: 18px;
+ }
+
+ .submit-btn {
+    background: linear-gradient(to right, #3B82F6, #A855F7);
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+ }

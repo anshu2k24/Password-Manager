@@ -1,0 +1,21 @@
+📁 project/
+├── main.py               # Python backend with Flask
+├── u_p.csv               # Encrypted credentials storage
+├── templates/
+│   ├── index.html        # Home page
+│   ├── save.html         # Save page
+│   ├── search.html       # Search + update/delete/copy
+│   └── about.html        # About page
+├── static/
+│   ├── css/
+│   │   └── style.css     # Your dark vibrant theme CSS
+│   └── js/
+│       └── script.js     # Optional client-side JS
+
+
+🔗 How the frontend connects:
+Your HTML pages (save.html, search.html, etc.) live in /templates/
+
+CSS & JS go in /static/
+
+Forms will POST to Flask routes (/save, /search) and Flask will handle all encryption/storage logic
